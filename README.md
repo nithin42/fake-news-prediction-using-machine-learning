@@ -12,7 +12,7 @@
 
 1. Download the fake news dataset from the above or get your own dataset.
 2. Make sure there are no NAN values in the data 
-3. follow the ipynb file from the above to build the machine learning model
+3. follow the [ipynb](https://github.com/nithin42/fake-news-prediction-using-machine-learning/blob/main/fake_news_clasification.ipynb) file from the above to build the machine learning model
 4. Test the model and get the accuracy sores
 5. see you in the next project 
 
