@@ -1,19 +1,13 @@
 from flask import Flask,request, url_for, redirect, render_template
 import pickle
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.stem import WordNetLemmatizer
-import re
-from nltk.corpus import stopwords
-import nltk
-nltk.download('wordnet')
 
-vectorizer = TfidfVectorizer()
-wordnet = WordNetLemmatizer()
-
-app = Flask(__name__)
 loaded_vectorizer = pickle.load(open('vectorizer.pickle', 'rb'))
 clf=pickle.load(open('clf.sav','rb'))
+
+
+
+app = Flask(__name__)
 
 
 
@@ -28,16 +22,10 @@ def hello_world():
 def predict():
     
     features =request.form["u_data"]
-
-    words = re.sub('[^a-zA-Z]', ' ',features)
-    words = words.lower()
-    words = words.split()
-    words = [wordnet.lemmatize(word) for word in words if not word in stopwords.words('english')]
-    words = ' '.join(words)
+    data = [features]
+    vect = loaded_vectorizer.transform(data).toarray()
     
-  
-    
-    prediction = clf.predict(loaded_vectorizer.transform([words]))
+    prediction = clf.predict(vect)
     
        
     if prediction == 1:
