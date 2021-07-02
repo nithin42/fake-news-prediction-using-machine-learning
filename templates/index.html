@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<title>home</title>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">   
+	<link rel="shortcut icon" href="favicon.ico"> 
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<!-- FontAwesome JS -->
+    <script defer src="../static/fontawesome/js/all.js"></script>
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../static/plugins/tiny-slider/tiny-slider.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+	<!-- Theme CSS -->  
+	<link id="theme-style" rel="stylesheet" href="../static/css/theme-1.css">
+<style>
+	
+    @media screen and (min-width: 360px) {
+         #mobi{
+          margin-left:0%;
+        }
+    }
+
+	@media screen and (min-width: 1000px) {
+         #mobi{
+          margin-left:-18%;
+        }
+    }
+
+	
+
+		.content {
+			color: black;
+		}
+
+
+</style>
+
+</head> 
+<body>
+	<header class="header text-center">	    
+		<div class="force-overflow">
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="index.html"></a></h1>
+			<nav class="navbar navbar-expand-lg navbar-dark" >
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div id="navigation" class="collapse navbar-collapse flex-column" >
+					<div class="profile-section pt-3 pt-lg-0">
+						<img class="profile-image mb-3 rounded-circle mx-auto" src="../static/images/profile.jpg" alt="image" >			
+						<div class="bio mb-3">Hi, myself Nitin<br> I'm a Machine Learning Enthusiast.</div>
+						<ul class="social-list list-inline py-2 mx-auto">
+							<li class="list-inline-item"><a href="https://twitter.com/NithinKumbam" target="_blank"><i class="fab fa-twitter fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="https://www.linkedin.com/in/nithin24/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+							<li class="list-inline-item"><a class="instagram" href="https://www.instagram.com/nithin24_/" target="_blank"><i class="fab fa-instagram fa-fw fa-lg"></i></a></li>
+	               			<li class="list-inline-item mb-3"><a class="github" href="https://github.com/nithin42/" target="_blank"><i class="fab fa-github fa-fw fa-lg"></i></a></li>
+						</ul><!--//social-list-->
+						<hr> 
+					</div><!--//profile-section-->
+					<ul class="navbar-nav flex-column text-left">
+						<li class="nav-item active">
+							<a class="nav-link" href=""><i class="fas fa-user fa-fw mr-2"></i>Predict<span class="sr-only">(current)</span></a>
+						</li>
+						
+						
+						<li class="nav-item">
+							<a class="nav-link" href="#data1"><i class="fas fa-file-alt fa-fw mr-2"></i>test-data</a>
+						</li>
+
+					</ul>
+					<div class="dark-mode-toggle text-center w-100">
+						<hr class="mb-4">
+					    <h4 class="toggle-name mb-3 "><i class="fas fa-adjust mr-1"></i>Dark Mode</h4>
+					    <input class="toggle" id="darkmode" type="checkbox">
+					    <label class="toggle-btn mx-auto mb-0"  id="drk" for="darkmode"></label>
+					</div><!--//dark-mode-toggle-->
+				</div>
+			</nav>
+		</div><!--//force-overflow-->
+	</header>
+<!-- ----------------------------------------- -->
+<div class="main-wrapper" id="dataa">
+    <section class="about-me-section p-3 p-lg-5 theme-bg-light">
+        <div class="container">
+            <div class="profile-teaser media flex-column flex-lg-row">
+                <div class="media-body">
+                    <!-- <h4 class="name font-weight-bold ">Protein structure predction using Deep Learning</h4> -->
+                    <h2>Fake news prediction</h2>
+                </div><!--//media-body-->
+                <centre><h4 id="100" style="width: 110%;">
+                    {{pred}}
+                  </h4>
+                  <h4 id="100" style="width: 110%;">
+                    {{red}}
+                  </h4>
+                </centre>
+                    <br>
+            </div>
+        </div>
+    </section><!--//about-me-section-->
+    
+    <div class="main-wrapper">
+        <div class="container px-3 px-lg-5" id="mobi">
+            <article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
+                <form action='/detect' method="post" id="myForm">
+                    
+                    <textarea rows="6" id="myTextarea" cols="100" name="u_data" required = "required"></textarea>
+                    <br><br>
+
+                    <button type="submit" id="100" class="btn-large waves-effect waves-light orange" style="background-color:#54b689;width: 20%;color:#fafafa;border: none;" onClick="ValidateForm(this.form)">Predict</button>
+                    <input type="button" class="btn-large waves-effect waves-light orange" style="background-color:#54b689;width: 20%;color:#fafafa;border: none;" onclick="javascript:eraseText();" value="Reset"></input>
+
+
+
+                </form>	
+            </article>
+        </div><!--//container-->
+
+    </div>
+
+    <div class="container"  id="data1"><br>
+        <h2 class="section-title font-weight-bold mb-3">Data</h2><br>
+                <div class="container px-3 px-lg-5">
+                    <article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
+                        <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRbZjbsgo_0fHtxVzqc0XzcMynKq0S8oZ502yQ7uKGwP-hUSsP3pRH5jhXvF7s2DmSEXZt4_YAM0C4c/pubhtml?gid=2072504606&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
+                        <embed type="application/pdf" src="../static/testing2.pdf" style="width: 100%;height: 1000px"></embed>
+                            </article>
+                        </div>
+            
+    </div>
+
+
+
+    <!-- -------------------------------- -->
+	
+
+		
+
+<!-- 
+		<section class="overview-section p-3 p-lg-5">
+			<div class="container">
+				<h2 class="section-title font-weight-bold mb-3">My Resources</h2><br>
+					<div class="container px-3 px-lg-5">
+						<div class="client-quote">
+							<div class="quote-holder">
+						
+								 <strong> Google Scholar link </strong><a href="https://scholar.google.com/citations?user=5cvpUSAAAAAJ&hl=en" target="_blank"><small class="text-muted">click here</small></a>
+								 <br><strong> ORCID link</strong> <a href="https://orcid.org/0000-0002-8432-0989"><small class="text-muted" target="_blank">click here</small></a>
+								 <br><strong> Scopus Link</strong> <a href="https://www.scopus.com/authid/detail.uri?authorId=57147186000" target="_blank"><small class="text-muted">click here</small></a>
+								 <br><strong> Research Gate link</strong> <a href="https://www.researchgate.net/profile/Balamurgan_Sahiah" target="_blank"><small class="text-muted">click here</small></a>
+
+							<i class="fas fa-quote-left"></i>
+							</div>
+						</div>
+					</div>
+		    </div>
+		   </section> 
+		
+		-->
+
+				<footer class="footer text-center py-4">
+					<small class="copyright">Template designed by <a href="https://www.linkedin.com/in/nithin24" target="_blank">Nithin</a></small>
+				</footer>
+	</div><!--//main-wrapper-->
+	
+	<!-- Javascript --> 
+
+		//Animated Collapsibles
+<script>
+	function eraseText() {
+    document.getElementById("myTextarea").value = "";
+}
+		
+</script> 
+ <!-- <script>
+	var form = document.getElementById('form')
+	form.addEventListener('submit'){
+
+
+
+	})
+
+</script>  -->
+
+
+<script>
+		function move() {
+	
+		var test = 90; 
+		var elem = document.getElementById("myBar");   
+		var width =10;
+		var id = setInterval(frame, 10);
+		function frame() {
+			if (width >= 80) {
+			clearInterval(id);
+			} else {
+			width++; 
+			elem.style.width = width + '%'; 
+			elem.innerHTML = width * 1  + '%';
+			}
+  			}	
+
+  
+}
+	</script>
+	
+	<script src="../static/plugins/jquery-3.4.1.min.js"></script>
+	<script src="../static/plugins/popper.min.js"></script> 
+	<script src="../static/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../static/plugins/tiny-slider/min/tiny-slider.js"></script>
+	<script src="../static/js/testimonials.js"></script>
+	<!-- Dark Mode -->
+	<script src="../static/plugins/js-cookie.min.js"></script>
+	<script src="../static/js/dark-mode.js"></script>   
+</body>
+</html> 
