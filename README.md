@@ -18,4 +18,4 @@
 
 > Test my model
 
-[Fake news prediction](https://www.google.com)
+[Fake news prediction](https://fake-news-prediction24.herokuapp.com/)
